@@ -20,3 +20,8 @@ After do |scenario|
   embed(screenshot, "image/png", "Screenshot")
   #end
 end
+
+After do |scenario|
+  screenshot = page.save_screenshot("log/screenshots/#{scenario.__id__}.png")
+  embed(screenshot, "image/png", "Screenshot")
+end
