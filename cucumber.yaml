@@ -1,6 +1,6 @@
 ---
 default: -p dev -p chrome -p html -p pretty
-ci: -p dev_toolbox -p headless -p json -p pretty
+ci: -p dev -p headless -p json -p pretty
 dev: ENV_TYPE=dev
 dev_toolbox: ENV_TYPE=dev_toolbox
 hmg: ENV_TYPE=hmg
