@@ -1,0 +1,80 @@
+Rodando o Jenkins em um Container Docker
+Vamos aprender como rodar o Jenkins dentro de um container Docker, portando é fundamental ter o Docker instalado em seu computador. Se você ainda não tem o Docker clique aqui.
+
+Sobre o Docker
+
+Primeiramente, recomendo fazer uma leitura sobre docker, containers etc… Neste artigo não vamos estudar a anatomia de um container ou nada to tipo, ou seja, vamos ver todos os passos para executar um container Jenkins. Então recomendo de verdade uma pesquisa sobre docker e também este pequeno overview clicando aqui.
+Subindo o Container do Jenkins
+Abra uma janela do terminal.
+Crie uma rede de ponte no Docker usando o seguinte comando:
+
+docker network create skynet
+
+Crie o seguinte volume  persistir os dados Jenkins usando o seguinte comando:
+
+docker volume create jenkins-data
+
+Vamos fazer o download da imagem jenkinsci/blueoceancom o seguinte comando:
+
+docker pull jenkinsci/blueocean
+
+No macOS ou Linux
+docker container run --name jenkins-blueocean --detach \
+  --network skynet -u root \
+  --volume jenkins-data:/var/jenkins_home \
+  --volume /var/run/docker.sock:/var/run/docker.sock \
+  --publish 8080:8080 --publish 50000:50000 jenkinsci/blueocean
+
+No Windows
+Mesmo estando no Windows, o seu container do Jenkins será Linux.
+
+docker container run --name jenkins-blueocean --detach ^
+  --network skynet -u root ^
+  --volume jenkins-data:/var/jenkins_home ^
+  --volume /var/run/docker.sock:/var/run/docker.sock ^
+  --publish 8080:8080 --publish 50000:50000 jenkinsci/blueocean
+
+Verificando se deu tudo certo
+docker ps
+
+Veja abaixo o container do Jenkins em execução 🙂
+Assistente de configuração pós-instalação
+Nesta etapa, vamos iniciar o assistente de configuração, para desbloquear o Jenkins, personalizá-lo com plug-ins e criar o primeiro usuário administrador.
+
+Abra o navegador de sua preferência e acesse http://localhost:8080para docker padrão e http://192.168.99.100:8080 para docker tollbox, em seguida, você verá a página Getting Started / Unlock Jenkins.
+
+Desbloquear página Jenkins
+Será necessário entrar no container do Jenkins para pegar a senha inicial do Administrador.
+Execute o comando:
+
+docker exec -it jenkins-blueocean bash
+
+Agora execute o comando:
+cat /var/jenkins_home/secrets/initialAdminPassword
+
+Copie a senha e cole no campo Administrator password:
+
+
+Na página Customize Jenkins, clique no botão “Install suggested plugins”
+
+
+Nesta etapa, o Jenkins vai fazer o download e instalação dos plugins básicos:
+
+
+Agora, vamos criar o primeiro usuário administrador do Jenkins. Usei devops como usuário e senha padrão
+
+
+Prosiga com os demais passo e no final clique no botão Start using Jenkins:
+
+
+Tudo certo, você será redirecionado para a home do Jenkins, onde poderá criar seus Jobs 🙂
+
+
+Conclusão
+Instalar Jenkins com Docker é bem simples. De uma forma geral, o Jenkins tem uma curva de aprendizado baixa, o que significa que você pode começar quanto antes.
+
+Espero que este tutorial tenha sido útil para melhorar seus estudos 🙂
+
+Abs,
+
+https://www.qaninja.io/rodando-o-jenkins-em-um-container-docker/
