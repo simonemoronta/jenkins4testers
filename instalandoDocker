@@ -1,0 +1,39 @@
+Instalando o Docker
+O Docker é um projeto de software livre para automatizar a implantação de aplicativos como contêineres autossuficientes portáteis que podem ser executados na nuvem ou localmente. O Docker é também uma empresa que promove e aprimora essa tecnologia, trabalhando em colaboração com fornecedores de nuvem, do Linux e do Windows, incluindo a Microsoft.
+
+Docker Hub:
+Para começar, vamos criar uma conta no Docker Hub:
+
+Acesse o site: https://hub.docker.com/signup e crie a sua conta;
+Faça login com a sua conta no Docker Hub.
+Instalando no Linux:
+Ubuntu, Mint ou ElementaryOS https://docs.docker.com/install/linux/docker-ce/ubuntu/
+Fedora https://docs.docker.com/install/linux/docker-ce/fedora/
+Debian https://docs.docker.com/install/linux/docker-ce/debian/
+Instalando no Mac:
+Instalar o Docker CE no mac é muito simples, veja o tutorial abaixo:
+
+https://docs.docker.com/docker-for-mac/install/
+Guia oficial do Docker
+
+O Docker será fundamental para preparar o ambiente de teste, portanto nada melhor que o guia oficial de instalação.
+Instalando no Windows
+No windows existe duas formas de instalar o Docker CE
+
+Opção 1 => Docker Desktop for Windows
+Somente para Windows 10 Professional ou Enterprise
+
+Requisitos
+
+Habilite a virtualização do HyperV clicando aqui
+Faça o Download e instale o Docker Desktop https://docs.docker.com/docker-for-windows/install/
+Opção 2 => Docker Toolbox (Recomendado)
+Funciona no Windows 7, 8, 8.1 e 10.
+
+S: A instalação não é convencional, por isso deixamos um video aqui em cima.
+
+Importante:
+
+O Docker não garante compatibilidade com Windows Home ou Starter Edition, ou seja, versões caseiras que não servem para trabalhar com desenvolvimento de softwares.
+
+https://qaninja.io/instalando-o-docker/
