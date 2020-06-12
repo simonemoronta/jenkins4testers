@@ -1,0 +1,27 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Build') {
+         steps {
+            echo 'Bulding or Roselve Dependencies!'
+         }
+      }
+      stage('Test') {
+         steps {
+            echo 'Runing regressions testes'
+         }
+      }
+      stage('UAT') {
+         steps {
+            echo 'Wait for user acceptence'
+            input(message: 'Go to production?', ok: 'Yes')
+         }
+      }
+      stage('Prod') {
+         steps {
+            echo 'WebApp is Ready :)'
+         }
+      }
+   }
+}
